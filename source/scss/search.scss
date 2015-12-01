@@ -1,0 +1,64 @@
+.ns_mpSearchHolder {
+    max-width: 644px;
+    margin: 0 auto;
+    background-color: $color--brand-grey__light;
+    padding: 16px 0 32px 0;
+    transform: translateZ(0);
+
+    .mp-search-input-box {
+        margin:0 auto;
+        max-width:390px;
+        padding: 16px 0;
+    }
+
+    .mp-search {
+        overflow: hidden;
+        max-width: 658px;
+        margin: auto;
+        padding: 0 8px;
+
+        hr {
+            display: block;
+            height: 1px;
+            border: 0;
+            border-top: 1px solid #b6b6b6;
+            margin: 0.625em -1.56em;
+            padding: 0; 
+        }
+
+    }
+
+    .mp-search--title{
+        color: $color--brand-teal;
+        font: bold 1.75em Helmet, Freesans, Helvetica, Arial, sans-serif;;
+        margin: 0;
+        text-align: center;
+    }
+
+    .mp-search--text-input{
+        display: block;
+        margin: 0 0 0.625em 0;
+        color: #333;
+        padding: 13px;
+        width: 100%;
+        outline: 0;
+        border: 1px solid $base--border-color;
+
+    }
+    .mp-search--inputs{
+        margin: 0.625em 0 0 0;
+    }
+
+    .mp-search--submit{
+        @extend %button--naked;
+        min-height: 47px;
+        width: 100%;
+        // max-width: 334px;
+        margin: 1em auto 0 auto;
+        display: block;
+    }
+}
+
+/*
+ * Responsive behaviour
+*/
