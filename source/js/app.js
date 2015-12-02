@@ -37,10 +37,15 @@ define(['bootstrap', 'autocompleteMediator', 'http://www.live.bbc.co.uk/indeptht
     });
 
     news.pubsub.on('user-submitted-mp', function (mp) {
-        // console.log('user-submitted-mp', mp);
         $result.show();
         $resultVote.text(mp.data.vote_outcome);
-        var resultHtmlString = '<p>' + mp.data.mp_name + ' (' + mp.data.party + ') - ' + mp.data.constituency_name + ' voted ' + mp.data.vote_outcome.toLowerCase() + ' the motion.</p>';
+
+        var resultHtmlString = '<p>' + mp.data.mp_name + ' (' + mp.data.party + ', ' + mp.data.constituency_name + ')';
+        if (mp.data.vote_outcome.toLowerCase() === 'abstained') {
+            resultHtmlString += ' abstained from voting.</p>';
+        } else {
+            resultHtmlString += ' voted ' + mp.data.vote_outcome.toLowerCase() + ' the motion.</p>';
+        }
         $resultText.html(resultHtmlString);
     });
 
