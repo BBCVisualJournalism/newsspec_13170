@@ -33,6 +33,10 @@ define(['bootstrap', 'autocompleteMediator', 'http://www.live.bbc.co.uk/indeptht
 
     $searchForm.on('submit', function () {
         news.pubsub.emit('user-submitted-mp', [getUserMp()]);
+
+        news.pubsub.emit('istats', ['mp-submitted', 'newsspec-interaction', true]);
+        var istats_mpname = 'mp-submitted_' + getUserMp().data.mp_name.replace(/\s+/g, '-').toLowerCase();
+        news.pubsub.emit('istats', [istats_mpname, 'newsspec-interaction', true]);
         return false;
     });
 
@@ -42,10 +46,13 @@ define(['bootstrap', 'autocompleteMediator', 'http://www.live.bbc.co.uk/indeptht
 
         var resultHtmlString = '<p>' + mp.data.mp_name + ' (' + mp.data.party + ', ' + mp.data.constituency_name + ')';
         if (mp.data.vote_outcome.toLowerCase() === 'abstained') {
-            resultHtmlString += ' abstained from voting.</p>';
+            resultHtmlString += ' abstained from voting.';
+        } else if (mp.data.vote_outcome.toLowerCase() === 'did not vote') {
+            resultHtmlString += ' did not vote.';
         } else {
-            resultHtmlString += ' voted ' + mp.data.vote_outcome.toLowerCase() + ' the motion.</p>';
+            resultHtmlString += ' voted ' + mp.data.vote_outcome.toLowerCase() + ' the motion.';
         }
+        resultHtmlString += '</p>';
         $resultText.html(resultHtmlString);
     });
 

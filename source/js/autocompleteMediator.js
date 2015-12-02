@@ -34,8 +34,6 @@ define(['bootstrap', 'lib/vendors/autocomplete'], function (news) {
                     if (suggestion.value.toLowerCase().indexOf(queryLowerCase) !== -1) {
                         return true;
                     }
-
-                    mpAutocomplete.logiStats();
                 },
                 onInvalidateSelection: function () {
                     mpAutocomplete.autocompleteSelectedMp = null;
@@ -62,14 +60,6 @@ define(['bootstrap', 'lib/vendors/autocomplete'], function (news) {
         },
         getSelectedMp: function () {
             return this.autocompleteSelectedMp;
-        },
-        logiStats: function () {
-            if (this.istatsSent === false) {
-                var searchType = (this.$autocompleteInput.selector === '#mp-search--text-input') ? 'initial-search' : 'animate-table-search';
-                news.pubsub.emit('istats', ['autocomplete-used', searchType]);
-
-                this.istatsSent = true;
-            }
         }
     };
 
