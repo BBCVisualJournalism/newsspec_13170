@@ -8,6 +8,7 @@ tmp
 content
 npm-debug.log
 tests/screenshots
+*.pdf
 
 # the following files are generated and overwritten by `grunt default`
 source/js/lib/news_special/iframemanager__host.min.js
