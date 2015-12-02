@@ -74,9 +74,9 @@
     }
 }
 
-@include respondMinMax(644px, false) {
+@include respondMinMax(592px, false) {
     .mpSearch {
-        width: 580px;
+        width: 528px;
         &_title {
             margin: 25px 0 15px;
         }
@@ -87,7 +87,7 @@
             }
             &_input {
                 float: left;
-                width: 428px;
+                width: 376px;
             }
             &_submit {
                 width: 144px;
