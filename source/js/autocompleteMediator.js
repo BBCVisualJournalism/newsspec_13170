@@ -28,7 +28,7 @@ define(['bootstrap', 'lib/vendors/autocomplete'], function (news) {
                         }
                     }
 
-                    mpAutocomplete.$searchSubmit.removeClass('disabled').removeAttr('disabled');
+                    mpAutocomplete.$searchSubmit.removeClass('mpSearch_form_submit-disabled').removeAttr('disabled');
                 },
                 lookupFilter: function (suggestion, originalQuery, queryLowerCase) {
                     if (suggestion.value.toLowerCase().indexOf(queryLowerCase) !== -1) {

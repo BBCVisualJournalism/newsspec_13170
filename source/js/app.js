@@ -3,6 +3,8 @@ define(['bootstrap', 'autocompleteMediator', 'http://www.live.bbc.co.uk/indeptht
     var $searchForm = news.$('.mpSearch_form');
     var $searchInput = news.$('#mpSearch_form_input');
     var $searchSubmit = news.$('.mpSearch_form_submit');
+
+    var $result = news.$('.mpSearch_result');
     var $resultVote = news.$('.mpSearch_result_vote');
     var $resultText = news.$('.mpSearch_result_text');
 
@@ -11,11 +13,11 @@ define(['bootstrap', 'autocompleteMediator', 'http://www.live.bbc.co.uk/indeptht
     };
 
     var disableButton = function ($button) {
-        $button.addClass('disabled').attr('disabled', 'disabled');
+        $button.addClass('mpSearch_form_submit-disabled').attr('disabled', 'disabled');
     };
 
     var enableButton = function ($button) {
-        $button.removeClass('disabled').removeAttr('disabled');
+        $button.removeClass('mpSearch_form_submit-disabled').removeAttr('disabled');
     };
 
     var updateButtonState = function () {
@@ -36,9 +38,10 @@ define(['bootstrap', 'autocompleteMediator', 'http://www.live.bbc.co.uk/indeptht
 
     news.pubsub.on('user-submitted-mp', function (mp) {
         // console.log('user-submitted-mp', mp);
+        $result.show();
         $resultVote.text(mp.data.vote_outcome);
-        var resultTextString = mp.data.mp_name + ' (' + mp.data.party + ') - ' + mp.data.constituency_name + ' voted ' + mp.data.vote_outcome.toLowerCase() + ' the motion.';
-        $resultText.text(resultTextString);
+        var resultHtmlString = '<p>' + mp.data.mp_name + ' (' + mp.data.party + ') - ' + mp.data.constituency_name + ' voted ' + mp.data.vote_outcome.toLowerCase() + ' the motion.</p>';
+        $resultText.html(resultHtmlString);
     });
 
     news.pubsub.emit('pageLoaded');

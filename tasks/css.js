@@ -48,11 +48,7 @@ module.exports = function (grunt) {
             'unqualified-attributes'        : false,
             'vendor-prefix'                 : false,
             'universal-selector'            : false,
-            'force'                         : true,
-
-            'adjoining-classes'             : false,
-            'ids'                           : false,
-            'important'                     : false
+            'force'                         : true
         },
         src: ['./content/<%= config.services.default %>/css/main.css']
     });
