@@ -1,16 +1,16 @@
 <div class="main">
-    <div class="ns_mpSearchHolder">
-        <div class="mp-search-input-box">
-            <div class="mp-search">
-                <div class="mp-search--inputs">
-                    <div class="mp-search--autocomplete">
-                        <input type="text" id="mp-search--text-input" class="mp-search--text-input" />
-                    </div>
+    <div class="mpSearch">
+        <h1 class="mpSearch_title">Title</h1>
+        
+        <form class="mpSearch_form">
+            <label for="mpSearch_form_input">Enter part of an MP's name or constituency</label>
+            <input type="text" id="mpSearch_form_input" class="mpSearch_form_input">
+            <button type="submit" class="mpSearch_form_submit disabled">See the vote</button>
+        </form>
 
-                    <button class="mp-search--submit disabled">Submit</button>
-                </div>
-
-            </div>
+        <div class="mpSearch_result">
+            <div class="mpSearch_result_vote"></div>
+            <p class="mpSearch_result_text"></p>
         </div>
     </div>
 </div>
