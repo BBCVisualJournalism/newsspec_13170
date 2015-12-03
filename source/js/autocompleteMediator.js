@@ -1,7 +1,7 @@
 define(['bootstrap', 'lib/vendors/autocomplete'], function (news) {
-    var AutocompleteMediator = function ($inputElement, onMpChange, mpData) {
+    var AutocompleteMediator = function ($inputElement, onMpSelect, mpData) {
         this.$autocompleteInput = $inputElement;
-        this.onMpChange = onMpChange;
+        this.onMpSelect = onMpSelect;
         this.autocompleteSelectedMp = null;
         this.istatsSent = false;
         this.$searchForm = news.$('.mpSearch_form');
@@ -23,12 +23,8 @@ define(['bootstrap', 'lib/vendors/autocomplete'], function (news) {
                 onSelect: function (suggestion) {
                     if (suggestion.mp !== self.autocompleteSelectedMp) {
                         self.autocompleteSelectedMp = suggestion.mp;
-                        if (self.onMpChange) {
-                            self.onMpChange(suggestion.mp);
-                        }
                     }
-
-                    self.$searchForm.trigger('submit');
+                    self.onMpSelect();
                 },
                 lookupFilter: function (suggestion, originalQuery, queryLowerCase) {
                     if (suggestion.value.toLowerCase().indexOf(queryLowerCase) !== -1) {
@@ -37,11 +33,7 @@ define(['bootstrap', 'lib/vendors/autocomplete'], function (news) {
                 },
                 onInvalidateSelection: function () {
                     self.autocompleteSelectedMp = null;
-                    if (self.onMpChange) {
-                        self.onMpChange();
-                    }
                 }
-
             });
         },
         getAutocompleteData: function () {
