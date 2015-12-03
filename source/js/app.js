@@ -36,20 +36,11 @@ define(['bootstrap', 'autocompleteMediator', 'http://www.live.bbc.co.uk/indeptht
 
     $searchInput.on('focus', function () {
         var $this = $(this);
-        if ($this.val() === $this.attr('placeholder')) {
-            $this.removeClass('mpSearch_form_input-placeholder');
-        }
         if ($this.val() !== '') {
             $this.val('');
             hideResult();
         }
-    }).on('blur', function () {
-        var $this = $(this);
-        if ($this.val() === '' || $this.val() === $this.attr('placeholder')) {
-            $this.addClass('mpSearch_form_input-placeholder');
-            $this.val($this.attr('placeholder'));
-        }
-    }).trigger('blur');
+    });
 
     $searchForm.on('submit', function () {
         if ($searchInput.val() === $searchInput.attr('placeholder')) {

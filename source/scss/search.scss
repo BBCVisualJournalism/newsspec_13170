@@ -17,7 +17,7 @@
         label {
             font-weight: bold;
             display: block;
-            margin: 20px 0;
+            margin: 0 0 20px;
         }
         &_input {
             width: 100%;
@@ -30,25 +30,6 @@
             &:focus {
                 border: solid 2px $teal;
                 outline: none;
-            }
-            &-placeholder {
-                font-weight: bold;
-            }
-            &::-webkit-input-placeholder {
-                color: $boulder;
-                font-weight: bold;
-            }
-            &:-moz-placeholder {
-                color: $boulder;
-                font-weight: bold;
-            }
-            &::-moz-placeholder {
-                color: $boulder;
-                font-weight: bold;
-            }
-            &:-ms-input-placeholder {
-                color: $boulder;
-                font-weight: bold;
             }
         }
     }
@@ -86,7 +67,7 @@
         &_form {
             padding: 25px 0;
             label {
-                margin: 25px 0 15px;
+                margin: 0 0 15px;
             }
         }
         &_result_text {
