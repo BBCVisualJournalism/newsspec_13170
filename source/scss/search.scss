@@ -1,6 +1,6 @@
 .mpSearch {
     background-color: $gallery;
-    width: 304px;
+    width: 100%;
     padding: 20px 8px;
     margin: 0 auto;
     &_title {
@@ -25,6 +25,7 @@
             line-height: 44px;
             padding: 0 8px;
             color: $mine_shaft;
+            border: solid 1px $silver;
             &:focus {
                 border: solid 2px $teal;
                 outline: none;
@@ -78,7 +79,7 @@
 
 @include respondMinMax(592px, false) {
     .mpSearch {
-        width: 592px;
+        width: 100%;
         padding: 25px 32px;
         &_title {
             margin: 0 0 15px;
@@ -90,10 +91,10 @@
             }
             &_input {
                 float: left;
-                width: 376px;
+                width: 80%;
             }
             &_submit {
-                width: 144px;
+                width: 19%;
                 margin: 0;
             }
         }
