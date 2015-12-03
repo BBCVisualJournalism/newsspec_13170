@@ -1,6 +1,6 @@
 # newsspec-13170: SyriaVote
 
-How did my MP vote on Syria?
+Syria strikes: Find out how your MP voted
 
 ## Getting started
 

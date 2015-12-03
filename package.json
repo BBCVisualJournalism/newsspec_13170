@@ -4,7 +4,7 @@
     "type": "git",
     "url": "http://github.com/BBCVisualJournalism/newsspec_13170"
   },
-  "description":    "How did my MP vote on Syria?",
+  "description":    "Syria strikes: Find out how your MP voted?",
   "version":        "0.1.37",
   "devDependencies": {
     "casperjs":                         "1.1.0-beta3",
