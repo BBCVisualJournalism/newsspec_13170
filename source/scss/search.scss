@@ -31,12 +31,31 @@
                 border: solid 2px $teal;
                 outline: none;
             }
+            &-placeholder {
+                font-weight: bold;
+            }
+            &::-webkit-input-placeholder {
+                color: $boulder;
+                font-weight: bold;
+            }
+            &:-moz-placeholder {
+                color: $boulder;
+                font-weight: bold;
+            }
+            &::-moz-placeholder {
+                color: $boulder;
+                font-weight: bold;
+            }
+            &:-ms-input-placeholder {
+                color: $boulder;
+                font-weight: bold;
+            }
         }
     }
     &_result {
         border-top: solid 1px $silver;
         display: none;
-        padding: 15px 0 20px;
+        padding: 15px 0 0;
         &_vote {
             width: 100%;
             height: 64px;
@@ -49,7 +68,7 @@
             line-height: 64px;
         }
         &_text {
-            margin: 20px 0 0;
+            padding: 15px 0 20px;
             p {
                 margin: 0;
             }
@@ -60,18 +79,18 @@
 @include respondMinMax(592px, false) {
     .mpSearch {
         width: 100%;
-        padding: 25px 32px;
+        padding: 25px 32px 0;
         &_title {
             margin: 0 0 15px;
         }
         &_form {
-            margin: 0 0 25px;
+            padding: 25px 0;
             label {
                 margin: 25px 0 15px;
             }
         }
         &_result_text {
-            margin: 25px 0 0;
+            padding: 25px 0;
         }
     }
 }
