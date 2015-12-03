@@ -31,27 +31,6 @@
                 outline: none;
             }
         }
-        &_submit {
-            display: block;
-            border: none;
-            margin: 8px 0 20px;
-            padding: 0 20px;
-            float: right;
-            height: 44px;
-            font-size: 17px;
-            font-size: 1.7rem;
-            line-height: 44px;
-            font-weight: bold;
-            color: $white;
-            background-color: $teal;
-            cursor: pointer;
-            text-align: center;
-            &-disabled {
-                color: $dove_gray;
-                background-color: $alto;
-                cursor: default;
-            }
-        }
     }
     &_result {
         border-top: solid 1px $silver;
@@ -88,14 +67,6 @@
             margin: 0 0 25px;
             label {
                 margin: 25px 0 15px;
-            }
-            &_input {
-                float: left;
-                width: 80%;
-            }
-            &_submit {
-                width: 19%;
-                margin: 0;
             }
         }
         &_result_text {

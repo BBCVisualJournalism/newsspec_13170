@@ -20,16 +20,15 @@ define(['bootstrap', 'autocompleteMediator', 'http://www.live.bbc.co.uk/indeptht
         $button.removeClass('mpSearch_form_submit-disabled').removeAttr('disabled');
     };
 
-    var updateButtonState = function () {
-        if (getUserMp() !== null) {
-            enableButton($searchSubmit);
-        }
-        else {
-            disableButton($searchSubmit);
-        }
+    var hideResult = function () {
+        $result.hide();
     };
 
-    var autocomplete = new AutocompleteMediator($searchInput, updateButtonState, autocompleteData);
+    var showResult = function () {
+        $result.show();
+    };
+
+    var autocomplete = new AutocompleteMediator($searchInput, hideResult, autocompleteData);
 
     $searchForm.on('submit', function () {
         news.pubsub.emit('user-submitted-mp', [getUserMp()]);
@@ -41,7 +40,7 @@ define(['bootstrap', 'autocompleteMediator', 'http://www.live.bbc.co.uk/indeptht
     });
 
     news.pubsub.on('user-submitted-mp', function (mp) {
-        $result.show();
+        showResult();
         $resultVote.text(mp.data.vote_outcome);
 
         var resultHtmlString = '<p>' + mp.data.mp_name + ' (' + mp.data.party + ', ' + mp.data.constituency_name + ')';

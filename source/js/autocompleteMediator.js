@@ -4,7 +4,7 @@ define(['bootstrap', 'lib/vendors/autocomplete'], function (news) {
         this.onMpChange = onMpChange;
         this.autocompleteSelectedMp = null;
         this.istatsSent = false;
-        this.$searchSubmit = news.$('.mpSearch_form_submit');
+        this.$searchForm = news.$('.mpSearch_form');
 
         this.mpData = mpData;
         
@@ -14,21 +14,21 @@ define(['bootstrap', 'lib/vendors/autocomplete'], function (news) {
 
     AutocompleteMediator.prototype = {
         setupAutocomplete: function () {
-            var mpAutocomplete = this;
+            var self = this;
 
             this.$autocompleteInput.autocomplete({
                 lookup: this.getAutocompleteData(),
                 lookupLimit: 20,
                 autoSelectFirst: true,
                 onSelect: function (suggestion) {
-                    if (suggestion.mp !== mpAutocomplete.autocompleteSelectedMp) {
-                        mpAutocomplete.autocompleteSelectedMp = suggestion.mp;
-                        if (mpAutocomplete.onMpChange) {
-                            mpAutocomplete.onMpChange(suggestion.mp);
+                    if (suggestion.mp !== self.autocompleteSelectedMp) {
+                        self.autocompleteSelectedMp = suggestion.mp;
+                        if (self.onMpChange) {
+                            self.onMpChange(suggestion.mp);
                         }
                     }
 
-                    mpAutocomplete.$searchSubmit.removeClass('mpSearch_form_submit-disabled').removeAttr('disabled');
+                    self.$searchForm.trigger('submit');
                 },
                 lookupFilter: function (suggestion, originalQuery, queryLowerCase) {
                     if (suggestion.value.toLowerCase().indexOf(queryLowerCase) !== -1) {
@@ -36,9 +36,9 @@ define(['bootstrap', 'lib/vendors/autocomplete'], function (news) {
                     }
                 },
                 onInvalidateSelection: function () {
-                    mpAutocomplete.autocompleteSelectedMp = null;
-                    if (mpAutocomplete.onMpChange) {
-                        mpAutocomplete.onMpChange();
+                    self.autocompleteSelectedMp = null;
+                    if (self.onMpChange) {
+                        self.onMpChange();
                     }
                 }
 
