@@ -8,7 +8,7 @@ module.exports = function (grunt) {
     grunt.config(['concurrent', 'js'], {
         tasks: (function getListOfConcurrentTasks() {
 
-            var applicationJS = ['jshint', 'jasmine'];
+            var applicationJS = ['jshint'];
 
             if (scaffoldLite) {
                 applicationJS.push('requirejs:lite');
